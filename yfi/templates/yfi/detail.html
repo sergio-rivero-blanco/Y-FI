@@ -1,0 +1,23 @@
+<h2>Documento {{ document.id }}</h2>
+
+<p>Estado: {{ document.status }}</p>
+
+{% if result %}
+  <p>Proveedor: {{ result.provider }}</p>
+
+  <h3>Resultado</h3>
+  <pre>{{ result.result_json }}</pre>
+
+  {% if result.result_json.warnings %}
+    <h3>Warnings</h3>
+    <ul>
+      {% for w in result.result_json.warnings %}
+        <li>{{ w }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% else %}
+  <p>No hay resultado todavía.</p>
+{% endif %}
+
+<a href="{% url 'upload' %}">Subir otro</a>

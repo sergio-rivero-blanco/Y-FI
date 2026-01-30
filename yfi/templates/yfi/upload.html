@@ -1,0 +1,15 @@
+<h2>Subir documento</h2>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="file" required><br><br>
+
+  <p> Especifique tipo de documento:</p>
+  <select name="doc_type">
+    <option value="NOMINA">Nómina</option>
+    <option value="AUTO">Automático</option>
+    <option value="FACTURA">Factura</option>
+  </select><br><br>
+
+  <button type="submit">Procesar</button>
+</form>
